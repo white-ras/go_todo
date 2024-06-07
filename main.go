@@ -13,4 +13,13 @@ func main() {
 
 	// log.Println("test")
 	fmt.Println(models.Db)
+
+	// テストユーザーを登録
+	u := &models.User{}
+	u.Name = "test"
+	u.Email = "hoegfeoh@hoga.com"
+	u.Password = "testtest"
+	fmt.Println(u)
+
+	u.CreateUser()
 }
