@@ -16,13 +16,13 @@ func main() {
 	fmt.Println(models.Db)
 
 	// テストユーザーを登録
-	// u := &models.User{}
-	// u.Name = "test"
-	// u.Email = "hoegfeoh@hoga.com"
-	// u.Password = "testtest"
-	// fmt.Println(u)
+	u := &models.User{}
+	u.Name = "test"
+	u.Email = "hoegfeoh@hoga.com"
+	u.Password = "testtest"
+	fmt.Println(u)
 
-	// u.CreateUser()
+	u.CreateUser()
 
 	// u, _ := models.GetUser(1)
 	// fmt.Println(u)
@@ -36,5 +36,8 @@ func main() {
 	// u.DeleteUser()
 	// u, _ = models.GetUser(1)
 	// fmt.Println(u)
+
+		user, _ := models.GetUser(2)
+		user.CreateTodo("First Todo")
 
 }
