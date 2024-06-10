@@ -17,9 +17,9 @@ func main() {
 
 	// テストユーザーを登録
 	// u := &models.User{}
-	// u.Name = "test"
-	// u.Email = "hoegfeoh@hoga.com"
-	// u.Password = "testtest"
+	// u.Name = "test2"
+	// u.Email = "ddddd@hoga.com"
+	// u.Password = "ddddd"
 	// fmt.Println(u)
 
 	// u.CreateUser()
@@ -43,10 +43,18 @@ func main() {
 	// t, _ := models.GetTodo(1)
 	// fmt.Println(t)
 
-	user, _ := models.GetUser(2)
-	user.CreateTodo("Second Todo")
+	// user, _ := models.GetUser(3)
+	// user.CreateTodo("DDD first Todo")
 
-	todos, _ := models.GetTodos()
+	// get all todos
+	// todos, _ := models.GetTodos()
+	// for _, v := range todos {
+	// 	fmt.Println(v)
+	// }
+
+	// get todos by user
+	userD, _ := models.GetUser(3)
+	todos, _ := userD.GetTodosByUser()
 	for _, v := range todos {
 		fmt.Println(v)
 	}
