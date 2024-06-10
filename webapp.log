@@ -3,3 +3,5 @@
 2024/06/07 16:14:32 users.go:57: near "where": syntax error
 2024/06/07 16:16:54 users.go:57: near "where": syntax error
 2024/06/07 16:17:30 users.go:57: near "where": syntax error
+2024/06/10 11:38:26 todos.go:42: near "selecxt": syntax error
+2024/06/10 11:38:46 todos.go:52: sql: expected 4 destination arguments in Scan, not 3
