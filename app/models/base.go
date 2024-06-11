@@ -5,23 +5,37 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
 	"todo_app/config"
 
 	"github.com/google/uuid"
-	_ "github.com/mattn/go-sqlite3"
+	"github.com/lib/pq"
 )
 
 var Db *sql.DB
 
 var err error
 
+/*
 const (
 	tableNameUser = "users"
 	tableNameTodo = "todos"
 	tableNameSession = "sessions"
 )
+*/
 
 func init() {
+
+	// herokuのpsqgrsqlのアドレスが入ってくる
+	url := os.Getenv("DATABASE_URL")
+	// リソースをコネクションとして取得
+	connection, _ := pq.ParseURL(url)
+	connection += "sslmode=require"
+	Db, err = sql.Open(config.Config.SQLDriver, connection)
+	if err != nil {
+		log.Fatal(err)
+	}
+	/*
 	Db, err = sql.Open(config.Config.SQLDriver, config.Config.DbName)
 	if err != nil {
 		log.Fatalln(err)
@@ -50,6 +64,8 @@ func init() {
 		user_id INTEGER,
 		created_at DATETIME)`, tableNameSession)
 	Db.Exec(cmdS)
+	*/
+	
 }
 
 
